@@ -13,7 +13,7 @@ function MenuBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   return (
-    <Menu pointing secondary size="mini" color="green">
+    <Menu pointing secondary size="massive" color="red">
       <Menu.Item
         name="home"
         active={activeItem === "home"}
