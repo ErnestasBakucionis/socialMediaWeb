@@ -9,3 +9,8 @@
     width: 400px;
     margin: auto;
 }
+
+.ui.olive.button:focus,
+.ui.olive.buttons .button:focus {
+    background-color: #b5cc18;
+}
