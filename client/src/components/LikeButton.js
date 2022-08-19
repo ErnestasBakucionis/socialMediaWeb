@@ -4,12 +4,13 @@ import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
 
 import { Button, Label, Icon } from "semantic-ui-react";
+import InfoPopup from "../util/InfoPopup";
 
 function LikeButton({ user, post: { id, likeCount, likes } }) {
   const [liked, setLiked] = useState(false);
   useEffect(() => {
     if (user && likes.find((like) => like.username === user.username)) {
-        setLiked(true)
+      setLiked(true);
     } else setLiked(false);
   }, [user, likes]);
 
@@ -19,7 +20,7 @@ function LikeButton({ user, post: { id, likeCount, likes } }) {
 
   const likeButton = user ? (
     liked ? (
-      <Button color="olive" >
+      <Button color="olive">
         <Icon name="thumbs up" />
       </Button>
     ) : (
@@ -34,12 +35,14 @@ function LikeButton({ user, post: { id, likeCount, likes } }) {
   );
 
   return (
-    <Button as="div" labelPosition="right" onClick={likePost}>
-      {likeButton}
-      <Label basic color="olive" pointing="left">
-        {likeCount}
-      </Label>
-    </Button>
+    <InfoPopup content={liked ? "Unlike this post!" : "Like this post!"}>
+      <Button as="div" labelPosition="right" onClick={likePost}>
+        {likeButton}
+        <Label basic color="olive" pointing="left">
+          {likeCount}
+        </Label>
+      </Button>
+    </InfoPopup>
   );
 }
 
