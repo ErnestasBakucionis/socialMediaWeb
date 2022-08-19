@@ -4,8 +4,8 @@
   "description": "Modern, minimalistic and secure social media website project.",
   "main": "index.js",
   "scripts": {
-    "serve": "node index",
-    "start": "nodemon index.js"
+    "start": "node index",
+    "serve": "nodemon index.js"
   },
   "author": "Ernestas Bakučionis",
   "license": "ISC",
