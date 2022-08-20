@@ -30,7 +30,7 @@ function Home() {
           <Transition.Group duration={300}>
             {posts &&
               posts.map((post) => (
-                <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+                <Grid.Column mobile={16} tablet={8} computer={4}  key={post.id} style={{ marginBottom: 20 }}>
                   <PostCard post={post} />
                 </Grid.Column>
               ))}
