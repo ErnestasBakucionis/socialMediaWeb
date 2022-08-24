@@ -2,11 +2,14 @@ import React from "react";
 import { Button, Form } from "semantic-ui-react";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 
 import { useForm } from "../util/hooks";
 import { FETCH_POSTS_QUERY } from "../util/graphql";
 
 function PostForm() {
+  const navigate = useNavigate();
+
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
     body: "",
   });
@@ -27,6 +30,7 @@ function PostForm() {
 
   function createPostCallback() {
     createPost();
+    navigate("/");
   }
 
   return (
@@ -35,7 +39,7 @@ function PostForm() {
       <h2>Create a post:</h2>
       <Form.Field>
         <Form.Input
-          placeholder="Hi world!"
+          placeholder="Enter text here..."
           name="body"
           onChange={onChange}
           value={values.body}

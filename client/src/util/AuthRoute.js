@@ -3,10 +3,16 @@ import { Navigate, Outlet } from "react-router-dom";
 
 import { AuthContext } from "../context/auth";
 
-function AuthRoute() {
+function LoggedInRoute() {
   const { user } = useContext(AuthContext);
 
   return user ? <Navigate to="/" /> : <Outlet />;
 }
 
-export default AuthRoute;
+function AnonymousRoute() {
+  const { user } = useContext(AuthContext);
+
+  return user ? <Outlet /> : <Navigate to="/" />;
+}
+
+export { LoggedInRoute, AnonymousRoute };
